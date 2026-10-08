@@ -1,0 +1,53 @@
+---
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+import Search from '../search/Search.astro';
+---
+
+<div class="manual-header">
+  <div class="manual-brand"><SiteTitle /></div>
+  <Search />
+  <div class="manual-theme"><ThemeSelect /></div>
+</div>
+
+<style>
+  .manual-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.6rem 1rem;
+    align-items: center;
+    height: 100%;
+    padding-inline-end: 2.5rem;
+  }
+  .manual-brand {
+    grid-column: 1;
+    min-width: 0;
+  }
+  .manual-brand :global(.site-title) {
+    font-size: 1.05rem;
+  }
+  .manual-brand :global(img) {
+    height: 2rem;
+  }
+  .manual-header :global(.manual-search) {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    min-width: 0;
+  }
+  .manual-theme {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  @media (min-width: 62rem) {
+    .manual-header {
+      grid-template-columns: minmax(13rem, 1fr) minmax(12rem, 1fr) auto;
+      padding-inline-end: 0;
+    }
+    .manual-brand,
+    .manual-header :global(.manual-search),
+    .manual-theme {
+      grid-column: auto;
+      grid-row: 1;
+    }
+  }
+</style>

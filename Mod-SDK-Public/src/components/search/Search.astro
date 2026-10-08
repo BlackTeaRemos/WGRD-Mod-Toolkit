@@ -1,0 +1,138 @@
+---
+const indexPath = `${import.meta.env.BASE_URL}search-index.json`;
+const label = 'Toolkit';
+---
+
+<div class="manual-search" data-search-index={indexPath}>
+  <button class="search-trigger" type="button" data-search-open aria-haspopup="dialog"
+    aria-label={`Search the ${label} manual`} aria-keyshortcuts="Control+K Meta+K" disabled>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7" /><path d="m15 15 6 6" /></svg>
+    <span>Search {label}</span><kbd aria-hidden="true">Ctrl K</kbd>
+  </button>
+  <dialog aria-labelledby="manual-search-title">
+    <div class="search-heading">
+      <h2 id="manual-search-title">Search the {label} manual</h2>
+      <button type="button" data-search-close>Close</button>
+    </div>
+    <label class="sr-only" for="manual-search-query">Search words</label>
+    <input id="manual-search-query" type="search" autocomplete="off" placeholder="What do you want to do?" />
+    <p class="search-status" aria-live="polite" data-search-status>Enter a topic or a control name.</p>
+    <ul class="search-results" data-search-results></ul>
+  </dialog>
+  <noscript><a href={`${import.meta.env.BASE_URL}tutorials/`}>Browse tutorials</a></noscript>
+</div>
+
+<script>
+  import { ManualSearch } from './ManualSearch';
+  for (const element of document.querySelectorAll<HTMLElement>('.manual-search')) {
+    new ManualSearch(element);
+  }
+</script>
+
+<style>
+  .search-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--sl-color-hairline-light);
+    border-radius: 0.4rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-gray-2);
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  kbd {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  dialog {
+    width: min(44rem, calc(100% - 2rem));
+    max-height: calc(100% - 4rem);
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid var(--sl-color-hairline-light);
+    border-radius: 0.5rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    box-shadow: var(--sl-shadow-lg);
+  }
+  dialog::backdrop {
+    background: rgb(0 0 0 / 0.6);
+  }
+  .search-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block-end: 1rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .search-heading button {
+    color: var(--sl-color-text);
+    background: transparent;
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 0.25rem;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+  }
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--sl-color-gray-4);
+    border-radius: 0.25rem;
+    background: var(--sl-color-bg-sidebar);
+    color: var(--sl-color-text);
+    font: inherit;
+  }
+  .search-status {
+    margin-block: 1rem;
+    color: var(--sl-color-gray-2);
+    font-size: 0.9rem;
+  }
+  .search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .search-results :global(a) {
+    display: block;
+    padding: 0.85rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.3rem;
+    margin-block: 0.5rem;
+    text-decoration: none;
+    color: var(--sl-color-text);
+  }
+  .search-results :global(a:hover),
+  .search-results :global(a:focus-visible) {
+    border-color: var(--sl-color-text-accent);
+    background: var(--sl-color-bg-sidebar);
+  }
+  .search-results :global(strong) {
+    color: var(--sl-color-text-accent);
+  }
+  .search-results :global(p) {
+    color: var(--sl-color-gray-2);
+    font-size: 0.9rem;
+    margin-block: 0.3rem 0;
+  }
+  @media (max-width: 32rem) {
+    kbd,
+    .search-trigger span {
+      display: none;
+    }
+    .search-trigger {
+      justify-content: center;
+    }
+    dialog {
+      padding: 1rem;
+    }
+  }
+</style>

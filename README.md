@@ -20,6 +20,14 @@ owed. The one and only condition: leave the "Created with WGRD Mod Toolkit by Bl
 Release builds are under [Releases](../../releases); the app self-updates from
 there.
 
+## Documentation
+
+Public documentation lives in [`Mod-SDK-Public`](Mod-SDK-Public) and is published
+to [blacktearemos.github.io/WGRD-Mod-Toolkit](https://blacktearemos.github.io/WGRD-Mod-Toolkit/).
+
+The documentation covers installation, workspace authoring, Arsenal and campaign
+workflows, WSD and public file references, tutorials, and troubleshooting.
+
 ## License
 
 See [LICENSE](LICENSE)

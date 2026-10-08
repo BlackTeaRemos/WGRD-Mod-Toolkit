@@ -1,0 +1,25 @@
+---
+title: "Controls"
+description: "Prepare a workspace, open a mod, and generate output."
+---
+
+import InterfaceCapture from '../../../components/tutorial/InterfaceCapture.astro';
+import modStatus from '../../../assets/screenshots/workspace/mod-status.png';
+
+Open **Workspace** to prepare game data and select the mod you are editing.
+
+| Control | Action |
+| --- | --- |
+| **Game folder** / **Workspace folder** | Choose the game installation and a separate workspace with **Browse**, or drag folders into the fields. |
+| **Wire & open Arsenal** | Prepare or open the selected workspace. |
+| **New mod** / **+ Create** | Enter a name and create an editable mod. |
+| **Mod name** | Select an editable mod as the destination for your edits. |
+| **Unpack** | Convert installed packs to editable source. Confirm replacement if source already exists. |
+| **Repack** | Build and install the selected mod's saved source. Also available in the top bar. |
+| **Refresh** | Reload the mod list and recheck output status. |
+
+Finish any **Apply** or **Save** action before repacking. Read operation results in the report panel.
+
+**Source** shows whether the mod is editable. **Build** reports its output state. **Save blocked** requires resolving a save error.
+
+<InterfaceCapture image={modStatus} alt="Workspace mod list with Example_mod selected, Source Editable, and Build Not built." caption="Workspace source and build status." />

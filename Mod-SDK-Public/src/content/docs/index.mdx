@@ -1,0 +1,27 @@
+---
+title: "WGRD Mod Toolkit"
+description: "Practical guides for creating and editing Wargame: Red Dragon mods."
+template: splash
+hero:
+  title: "Wargame modding"
+  tagline: "Combined workspace for wargame modding"
+  actions:
+    - text: "Start"
+      link: /WGRD-Mod-Toolkit/start/
+      icon: right-arrow
+    - text: "Tutorials"
+      link: /WGRD-Mod-Toolkit/tutorials/
+      icon: right-arrow
+      variant: secondary
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Tutorials
+
+<CardGrid>
+  <LinkCard title="Make a first mod" href="/WGRD-Mod-Toolkit/tutorials/first-mod/" description="Prepare a workspace, save a change, and inspect a new output." />
+  <LinkCard title="Build a unit variant" href="/WGRD-Mod-Toolkit/tutorials/unit-variant/" description="Connect identity, gameplay, weapons, and deck eligibility." />
+  <LinkCard title="Design a deck selection" href="/WGRD-Mod-Toolkit/tutorials/deck-designer/" description="Create specializations, eras, and coalitions with deliberate rules." />
+  <LinkCard title="Browse tutorials" href="/WGRD-Mod-Toolkit/tutorials/" description="Find focused tasks with prerequisites, controls" />
+</CardGrid>

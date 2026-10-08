@@ -1,0 +1,41 @@
+name: Publish documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - Mod-SDK-Public/**
+      - .github/workflows/docs.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout documentation
+        uses: actions/checkout@v7
+      - name: Build and upload the public manual
+        uses: withastro/action@v6
+        with:
+          path: Mod-SDK-Public
+          node-version: 24
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the public manual
+        id: deployment
+        uses: actions/deploy-pages@v5

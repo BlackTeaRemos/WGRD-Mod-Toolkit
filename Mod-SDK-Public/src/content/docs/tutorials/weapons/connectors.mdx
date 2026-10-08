@@ -1,0 +1,22 @@
+---
+title: "Attach a pylon connector"
+description: "Import a connector and place it on a unit."
+---
+
+import InterfaceCapture from '../../../../components/tutorial/InterfaceCapture.astro';
+import loadoutEntry from '../../../../assets/screenshots/showroom/loadout-entry.png';
+
+## Steps
+
+1. Select an editable unit in **Showroom** and open **Connectors** from its loadout strip.
+2. Use **Import connector FBX** or **Choose from catalogue**.
+3. Select the connector in the placement list.
+4. Choose its **Host model** and **Parent bone**.
+5. Set **Position, cm**, **Rotation, degrees**, and **Scale**.
+6. Use **Apply** to save, then repack.
+
+<InterfaceCapture image={loadoutEntry} alt="Loadout board strip below the Showroom preview with a Connectors button." caption="Connectors button in the loadout strip." />
+
+The axes are **X forward, Y right, Z up**. Position and rotation are relative to the parent bone. Negative scale mirrors the connector.
+
+**Normal** uses native placement. **Mesh** converts supported rocket positions onto the host mesh. Use **Recalculate native positions** to update them when applying.
