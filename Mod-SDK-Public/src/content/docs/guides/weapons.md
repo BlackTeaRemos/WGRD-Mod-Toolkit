@@ -5,6 +5,8 @@ description: "Edit weapon stats, models, and displayed names."
 
 Weapons edits weapon definitions. Use a unit's **Mounts** inspector to assign them to that unit.
 
+For a step-by-step walkthrough of the two-pane editor, see [Use the weapon editor](/WGRD-Mod-Toolkit/tutorials/weapons/weapon-editor/).
+
 For individual fields, see [weapon parameters](/WGRD-Mod-Toolkit/parameters/weapons/), [missile parameters](/WGRD-Mod-Toolkit/parameters/missiles/), and [effect parameters](/WGRD-Mod-Toolkit/parameters/effects/).
 
 ## Inspector tabs
