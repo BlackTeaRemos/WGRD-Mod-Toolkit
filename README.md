@@ -1,4 +1,5 @@
 ﻿# WGRD Mod Toolkit
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3Z02A8IZ4)
 
 Heavy SDK for Wargame Red Dragon mod creation through unified and rapidly working interface.
 
